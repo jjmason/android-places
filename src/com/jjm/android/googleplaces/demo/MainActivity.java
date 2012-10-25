@@ -27,12 +27,12 @@ public class MainActivity extends Activity implements GlobalDebug{
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.demo_main);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_main, menu);
+        getMenuInflater().inflate(R.menu.demo_main, menu);
         SearchView searchView = (SearchView) menu.findItem(R.id.menu_search).getActionView();
         SearchManager manager = (SearchManager) getSystemService(SEARCH_SERVICE);
         SearchableInfo info = manager.getSearchableInfo(getComponentName());

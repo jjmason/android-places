@@ -17,13 +17,11 @@
 package com.jjm.android.googleplaces.util;
 
 import java.io.IOException;
- 
+
 import com.google.api.client.http.HttpRequest;
 import com.google.api.client.http.HttpRequestFactory;
 import com.google.api.client.http.HttpRequestInitializer;
 import com.google.api.client.http.javanet.NetHttpTransport;
-import com.google.api.client.http.json.JsonHttpParser;
-import com.google.api.client.json.jackson.JacksonFactory;
  
 
 /**
@@ -34,7 +32,6 @@ public class Helpers {
 	public static HttpRequestFactory createJsonRequestFactory(){
 		return new NetHttpTransport().createRequestFactory(new HttpRequestInitializer() {
 			public void initialize(HttpRequest request) throws IOException {
-				request.addParser(new JsonHttpParser(new JacksonFactory()));
 			}
 		});
 	}

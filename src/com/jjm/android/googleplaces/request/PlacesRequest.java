@@ -24,8 +24,13 @@ import java.util.Map;
 import android.content.Context;
 import android.location.Location;
 
+import com.google.api.client.extensions.android3.json.AndroidJsonFactory;
 import com.google.api.client.http.GenericUrl;
+import com.google.api.client.http.HttpRequest;
 import com.google.api.client.http.HttpRequestFactory;
+import com.google.api.client.http.HttpRequestInitializer;
+import com.google.api.client.http.javanet.NetHttpTransport;
+import com.google.api.client.json.JsonObjectParser;
 import com.google.api.client.util.GenericData;
 import com.google.api.client.util.Key;
 import com.google.common.base.Preconditions;
@@ -42,6 +47,8 @@ import com.jjm.android.googleplaces.util.LatLng;
  *            the type of response returned by the execute method on this
  *            request.
  */
+@SuppressWarnings("deprecation") // TODO Deal with this (deprecated class is
+								 // AndroidJsonFactory)
 public abstract class PlacesRequest<T extends PlacesResponse> extends
 		GenericData implements HasGenericUrl {
 	public static final double MAX_RADIUS = 5E5;
@@ -225,6 +232,15 @@ public abstract class PlacesRequest<T extends PlacesResponse> extends
 	}
 
 	/**
+	 * Execute the request.
+	 * @return The corresponding result instance.
+	 * @throws IOException
+	 */
+	public T execute() throws IOException{
+		return execute(createRequestFactory());
+	}
+	
+	/**
 	 * Execute the request
 	 */
 	public T execute(HttpRequestFactory requestFactory) throws IOException {
@@ -237,5 +253,14 @@ public abstract class PlacesRequest<T extends PlacesResponse> extends
 		url.putAll(this);
 		prepareData(url);
 		return url;
+	}
+	
+	private HttpRequestFactory createRequestFactory(){
+		return new NetHttpTransport().createRequestFactory(new HttpRequestInitializer() {
+			@Override
+			public void initialize(HttpRequest request) throws IOException {
+				request.setParser(new JsonObjectParser(new AndroidJsonFactory()));
+			}
+		});
 	}
 }

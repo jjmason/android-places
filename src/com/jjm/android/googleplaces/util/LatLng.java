@@ -5,8 +5,8 @@ import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
 
-import com.google.android.maps.GeoPoint;
-import com.google.api.client.util.Key; 
+import com.google.api.client.util.Key;
+import com.google.api.client.util.ObjectParser;
 
 /**
  * <p>A simple holder for a latitude and longitude.  Fields have
@@ -69,15 +69,7 @@ public class LatLng {
 	public int getLatitudeE6(){
 		return (int)(1E6 * mLatitude); 
 	}
-	
-	/** 
-	 * Convert this point to a {@link GeoPoint}.
-	 * @return the geopoint
-	 */
-	public GeoPoint toGeoPoint(){
-		return new GeoPoint(getLatitudeE6(), getLongitudeE6());
-	}
-	
+	 
 	/**
 	 * Helper to return the last known location.
 	 * @param context Used to access location services.
