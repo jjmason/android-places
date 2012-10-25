@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry kind="lib" path="lib/google-api-client-1.11.0-beta.jar"/>
+	<classpathentry kind="lib" path="lib/google-http-client-1.11.0-beta.jar" sourcepath="/home/j/Code/libs/google-api-java/libs-sources/google-http-client-1.11.0-beta-sources.jar"/>
+	<classpathentry kind="lib" path="lib/guava-11.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-core-2.0.5.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-core-asl-1.9.9.jar" sourcepath="/home/j/Code/libs/google-api-java/libs-sources/jackson-core-asl-1.9.9-sources.jar"/>
+	<classpathentry kind="lib" path="lib/google-http-client-android3-1.11.0-beta.jar" sourcepath="/home/j/Code/libs/google-api-java/libs-sources/google-http-client-android3-1.11.0-beta-sources.jar"/>
+	<classpathentry kind="output" path="bin/classes"/>
+</classpath>
