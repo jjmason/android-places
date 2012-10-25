@@ -1,18 +1,18 @@
 /*
-	This file is part of QuietPlaces.
+	This file is part of GooglePlaces.
 
-    QuietPlaces is free software: you can redistribute it and/or modify
+    GooglePlaces is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    QuietPlaces is distributed in the hope that it will be useful,
+    GooglePlaces is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with QuietPlaces.  If not, see <http://www.gnu.org/licenses/>.
+    along with GooglePlaces.  If not, see <http://www.gnu.org/licenses/>.
  */
 package com.jjm.android.googleplaces.response;
 
@@ -97,6 +97,10 @@ public abstract class PlacesResponse {
 		return nullToEmpty(mHtmlAttributions);
 	}
 	 
+        /**
+         * Throw an exception if the response status is not {@link Status#OK}
+         * or {@link Status#ZERO_RESULTS}.
+         */
 	public PlacesResponse throwBadStatus(){
 		getStatus().throwBadStatus();
 		return this;
